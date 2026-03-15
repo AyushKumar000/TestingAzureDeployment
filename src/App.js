@@ -1,13 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL);
+        const result = await response.json();
+        console.log(result);
+        setData(result.msg);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {data ? data : "Loading..."}
         </p>
         <a
           className="App-link"
