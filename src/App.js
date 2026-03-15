@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [data, setData] = useState(null);
+  const API_URL = "https://test-website-backend-djdmdfgxcfbugfeq.eastasia-01.azurewebsites.net/";
 
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(process.env.REACT_APP_BACKEND_URL);
+        console.log(process.env.REACT_APP_BACKEND_URL);
+        const response = await fetch(API_URL);
         const result = await response.json();
         console.log(result);
         setData(result.msg);
