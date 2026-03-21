@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [data, setData] = useState(null);
-  const API_URL = "https://test-website-backend-djdmdfgxcfbugfeq.eastasia-01.azurewebsites.net/";
+  //const API_URL = "https://test-website-backend-djdmdfgxcfbugfeq.eastasia-01.azurewebsites.net/";
 
   useEffect(() => {
 
