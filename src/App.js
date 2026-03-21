@@ -12,7 +12,7 @@ function App() {
     const fetchData = async () => {
       try {
         console.log(process.env.REACT_APP_BACKEND_URL);
-        const response = await fetch(API_URL);
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL);
         const result = await response.json();
         console.log(result);
         setData(result.msg);
